@@ -9,6 +9,11 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'name',
         'email',
@@ -17,6 +22,9 @@ class Restaurant extends Model
         'description',
     ];
 
+    /**
+     * Get the menu items for the restaurant.
+     */
     public function menuItems()
     {
         return $this->hasMany(MenuItem::class);

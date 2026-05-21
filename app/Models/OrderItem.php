@@ -9,6 +9,11 @@ class OrderItem extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'order_id',
         'menu_item_id',
@@ -17,11 +22,17 @@ class OrderItem extends Model
         'subtotal',
     ];
 
+    /**
+     * Get the order that owns the order item.
+     */
     public function order()
     {
         return $this->belongsTo(Order::class);
     }
 
+    /**
+     * Get the menu item that owns the order item.
+     */
     public function menuItem()
     {
         return $this->belongsTo(MenuItem::class);
